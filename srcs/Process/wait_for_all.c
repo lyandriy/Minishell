@@ -6,7 +6,7 @@
 /*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 15:06:21 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/25 18:32:10 by lyandriy         ###   ########.fr       */
+/*   Updated: 2023/09/17 17:41:08 by lyandriy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,7 @@ void	wait_for_all(t_shell *shell)
 		child = shell->childs->current->content;
 		waitpid(child->pid, &status, 0);
 		if (child->is_limit_end)
-		{
 			shell->child_status = WEXITSTATUS(status);
-			if (WIFSIGNALED(status))
-				shell->child_status = WIFSIGNALED(status);
-		}
 		shell->childs->current = shell->childs->current->next;
 	}
 }

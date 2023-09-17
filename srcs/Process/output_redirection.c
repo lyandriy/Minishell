@@ -6,7 +6,7 @@
 /*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/18 14:42:35 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/07/22 17:56:01 by lyandriy         ###   ########.fr       */
+/*   Updated: 2023/09/17 17:40:49 by lyandriy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Gestiona la redirección del tipo '>'
 */
 void	output_redirection(t_cmd *cmd, t_shell *shell)
 {
-	int		fd_output;
+	int	fd_output;
 
 	fd_output = 0;
 	fd_output = open(cmd->redir_out->file, O_CREAT | O_TRUNC | O_WRONLY, 0644);

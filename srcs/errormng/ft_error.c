@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:28:33 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/11 12:39:15 by vicgarci         ###   ########.fr       */
+/*   Updated: 2023/09/17 17:39:17 by lyandriy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(t_shell *shell, errno_t error_code)
 {
-	t_child		*child;
+	t_child	*child;
 
 	if (error_code && shell)
 	{

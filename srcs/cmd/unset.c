@@ -6,7 +6,7 @@
 /*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:23:56 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/23 18:51:26 by lyandriy         ###   ########.fr       */
+/*   Updated: 2023/09/17 17:38:23 by lyandriy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_bool	free_clone_env(char **env)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (env[i])

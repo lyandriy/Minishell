@@ -6,7 +6,7 @@
 /*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:31:18 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/23 19:11:37 by lyandriy         ###   ########.fr       */
+/*   Updated: 2023/09/07 17:41:40 by lyandriy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	strncmp_export(const char *t, const char *e)
 	{
 		if (t[i] == '=' && e[i] == '\0' && !f_strncmp(t, e, ft_strlen(e)))
 			return (0);
-		else if (t[i] == '\0' && e[i] == '=' && !f_strncmp(t, e, ft_strlen(e)))
+		else if (t[i] == '\0' && e[i] == '=' && f_strncmp(t, e, ft_strlen(e)))
 			return (1);
 		else if (t[i] == '\0' && e[i] == '\0' && !f_strncmp(t, e, ft_strlen(e)))
 			return (1);
@@ -46,7 +46,7 @@ static int	strncmp_export(const char *t, const char *e)
 	}
 	if (t[i] == '=' && e[i] == '\0' && !f_strncmp(t, e, ft_strlen(e)))
 		return (0);
-	else if (t[i] == '\0' && e[i] == '=' && !f_strncmp(t, e, ft_strlen(e)))
+	else if (t[i] == '\0' && e[i] == '=' && f_strncmp(t, e, ft_strlen(e)))
 		return (1);
 	else if (t[i] == '\0' && e[i] == '\0' && !f_strncmp(t, e, ft_strlen(e)))
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/14 13:31:00 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/23 19:40:16 by lyandriy         ###   ########.fr       */
+/*   Updated: 2023/09/17 17:39:27 by lyandriy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	clean_env(t_shell *shell)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (shell->env)
