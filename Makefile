@@ -41,7 +41,6 @@ FILES_CMD = cmd_executer \
 			env \
 			cd_oculto \
 			export \
-			export2 \
 			exit \
 			unset \
 			more_built_in \

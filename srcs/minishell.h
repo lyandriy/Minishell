@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 14:50:19 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/25 17:52:04 by lyandriy         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:15:02 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,12 @@ int		echo(t_cmd *cmd);
 int		ft_pwd(char **env);
 int		ft_env(char **env);
 int		ft_cd(const char *dir, t_shell *shell);
-int		ft_export(t_shell *shell, char	*s);
-int		ft_unset(t_shell *shell, char *s);
+void	ft_export(t_shell *shell, char	*s);
+void	ft_unset(t_shell *shell, char *s);
 void	ft_exit(t_shell *shell, t_cmd *cmd);
-int		do_export(t_cmd *cmd, t_shell *shell);
-int		do_unset(t_cmd *cmd, t_shell *shell);
+void	do_export(t_cmd *cmd, t_shell *shell);
+void	do_unset(t_cmd *cmd, t_shell *shell);
 void	sort_export(t_shell *shell);
-int		check_name(char *s);
-void	else_export(t_shell *shell, char *s, int i);
 
 //CD
 void	change_dir(t_shell *shell, char *dir);

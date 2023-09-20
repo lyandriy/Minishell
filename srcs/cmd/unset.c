@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   unset.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:23:56 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/09/17 17:38:23 by lyandriy         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:13:33 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static t_bool	free_clone_env(char **env)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	while (env[i])
@@ -68,8 +68,6 @@ static char	*load_target(char *s)
 	int		i;
 
 	i = 0;
-	if (!check_name(s))
-		return (NULL);
 	while (s[i])
 		i++;
 	target = NULL;
@@ -79,7 +77,7 @@ static char	*load_target(char *s)
 	return (target);
 }
 
-int	ft_unset(t_shell *shell, char *s)
+void	ft_unset(t_shell *shell, char *s)
 {
 	int		i;
 	int		size_env;
@@ -89,7 +87,7 @@ int	ft_unset(t_shell *shell, char *s)
 	size_env = 0;
 	target = load_target(s);
 	if (!target)
-		return (1);
+		ft_error(shell, errno);
 	i = 0;
 	while (shell->env[size_env])
 		size_env++;
@@ -97,5 +95,4 @@ int	ft_unset(t_shell *shell, char *s)
 	if (i != FT_INVALID_POS)
 		make_env(shell, i, size_env);
 	free(target);
-	return (0);
 }
