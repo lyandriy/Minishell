@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_string.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 14:59:30 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/20 17:12:50 by lyandriy         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:45:43 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ static int	ftt_strncmp(const char *s1, const char *s2, size_t n)
 		if (*s2 != '\0')
 			s2++;
 	}
-	if (*s2 != '=')
-		return (1);
 	return (0);
 }
 

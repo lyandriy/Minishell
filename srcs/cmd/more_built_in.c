@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/23 12:16:01 by lyandriy          #+#    #+#             */
-/*   Updated: 2023/09/20 16:14:52 by vicgarci         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:36:43 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	do_unset(t_cmd *cmd, t_shell *shell)
 		ft_unset(shell, cmd->argv[i]);
 		i++;
 	}
+	shell->child_status = 0;
 }
 
 void	do_export(t_cmd *cmd, t_shell *shell)
@@ -42,4 +43,5 @@ void	do_export(t_cmd *cmd, t_shell *shell)
 			i++;
 		}
 	}
+	shell->child_status = 0;
 }

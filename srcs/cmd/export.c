@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:31:18 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/09/20 16:11:08 by vicgarci         ###   ########.fr       */
+/*   Updated: 2023/09/20 16:43:47 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	ft_export(t_shell *shell, char	*s)
 
 	target = NULL;
 	target = load_target(s);
+	ft_printf("T -> %s\n", target);
 	if (!target)
 		return ;
 	size_env = 0;
