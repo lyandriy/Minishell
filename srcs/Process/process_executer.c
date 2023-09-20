@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process_executer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 10:34:35 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/23 19:30:52 by lyandriy         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:48:03 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void		close_pipes(t_shell *shell);
 
 void	process_executer(t_shell *shell)
 {
+	signal(SIGINT, SIG_IGN);
 	shell->childs->current = shell->childs->lst_head;
 	if (shell->cmds->lst_head && shell->cmds->lst_head->content)
 	{

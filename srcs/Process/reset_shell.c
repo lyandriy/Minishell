@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 19:06:52 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/10 19:33:28 by vicgarci         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:49:44 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ static void	reset_lst(t_lstmng *lst)
 
 void	reset_shell(t_shell *shell)
 {
+	if (!init_signals(&(shell->sact)))
+		exit(0);
 	if (shell->cmds->lst_head)
 		ft_lstclear(&(shell->cmds->lst_head), ft_cleancmd);
 	reset_lst(shell->cmds);

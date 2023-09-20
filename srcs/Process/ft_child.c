@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_child.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 11:58:27 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/25 18:22:07 by lyandriy         ###   ########.fr       */
+/*   Updated: 2023/09/20 15:50:53 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	cmd_not_found(t_child *child);
 void	ft_child(t_shell *shell, t_child *child)
 {
 	signal(SIGQUIT, SIG_DFL);
+	signal(SIGINT, SIG_DFL);
 	std_red(child, shell);
 	close_pipes(shell);
 	mng_redirections(child->cmd, shell);
