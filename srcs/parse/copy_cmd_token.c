@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   copy_cmd_token.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 15:01:35 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/25 18:05:29 by lyandriy         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:45:26 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ static int	this_is_argv(t_shell *shell, t_cmd *new_cmd, char *my_input)
 	size = 0;
 	count = 0;
 	size = count_tam_argv(shell, my_input, &count);
-
 	new_cmd->argv[shell->s_i.ctoken] = malloc(sizeof(char) * (size + 1));
 	if (!new_cmd->argv[shell->s_i.ctoken])
 		exit (1);

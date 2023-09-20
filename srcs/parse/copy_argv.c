@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   copy_argv.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 11:14:17 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/25 18:06:19 by lyandriy         ###   ########.fr       */
+/*   Updated: 2023/09/20 14:43:51 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ static void	copy_variable(t_shell *shell, t_cmd *new_cmd, char *input, int *c)
 	}
 	if (input[*c] && input[*c + 1] == '?')
 	{
-		if (new_cmd->argv[shell->s_i.ctoken] && new_cmd->argv[shell->s_i.ctoken][shell->s_i.copy] != '\0')
+		if (new_cmd->argv[shell->s_i.ctoken]
+			&& new_cmd->argv[shell->s_i.ctoken][shell->s_i.copy] != '\0')
 			new_cmd->argv[shell->s_i.ctoken][shell->s_i.copy] = '\0';
 		*c += this_is_env(shell, new_cmd, &input[*c], &shell->s_i.ctoken);
 		shell->s_i.copy = ft_strlen(new_cmd->argv[shell->s_i.ctoken]);
@@ -79,9 +80,7 @@ void	join_str(t_cmd *new_cmd, int *i, t_shell *shell, char input)
 	a[1] = '\0';
 	new_cmd->argv[*i] = protected_ft_strjoin(ptr, a);
 	free(ptr);
-
 }
-
 
 void	copy_argv(t_shell *shell, t_cmd *new_cmd, char *input)
 {
