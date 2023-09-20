@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:52:01 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/09/20 16:54:17 by vicgarci         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:38:32 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ static int	get_argv_size(char **argv)
 	i = 0;
 	while (argv[i])
 		i++;
-
 	return (i);
 }
 

@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lyandriy <lyandriy@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 14:43:39 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/23 19:42:44 by lyandriy         ###   ########.fr       */
+/*   Updated: 2023/09/20 17:37:49 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+/*
+void	leakss(void)
+{
+	system("leaks minishell");
+}
+*/
 
 int	main(int argc, char **argv, char **env)
 {
