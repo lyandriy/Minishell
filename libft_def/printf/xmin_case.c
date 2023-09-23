@@ -31,11 +31,11 @@ int	xmin_case(unsigned int hexa)
 
 	i = 0;
 	if (hexa == 0)
-		i += write(1, "0", 1);
+		i += write(2, "0", 1);
 	else
 	{
 		i = calc_hexa_len(hexa);
-		ft_putuhexa_fd(hexa, 1, 0);
+		ft_putuhexa_fd(hexa, 2, 0);
 	}
 	return (i);
 }

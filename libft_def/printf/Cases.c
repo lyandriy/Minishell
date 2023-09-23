@@ -31,7 +31,7 @@ int	cases(const char *s, va_list largv)
 		return (u_case(va_arg(largv, int)));
 	else if (*s == '%')
 	{
-		ft_putchar_fd('%', 1);
+		ft_putchar_fd('%', 2);
 		return (1);
 	}
 	return (0);

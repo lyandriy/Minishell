@@ -2,7 +2,7 @@ NAME = minishell
 LIBFT = libft_def/libft.a
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror $(RL_INC) #-g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror $(RL_INC)
 LIBS_FLAGS = -lreadline
 
 RL_LIB = -L /Users/$(USER)/.brew/opt/readline/lib
@@ -73,6 +73,7 @@ FILES_UTILS = ft_cleanchild \
 			clone_env \
 			make_new_env \
 			save_memory_dir \
+			free_clone_env \
 
 UTILS_DIR = srcs/utils/
 SRCS_UTILS = $(addprefix $(UTILS_DIR), $(addsuffix .c, $(FILES_UTILS)))

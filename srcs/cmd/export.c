@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 15:31:18 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/09/20 16:48:55 by vicgarci         ###   ########.fr       */
+/*   Updated: 2023/09/23 16:25:55 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static	int	check_name(char *s)
 				"export",
 				s,
 				"not a valid identifier");
+			g_shell->child_status = 1;
 			return (false);
 		}
 		i++;

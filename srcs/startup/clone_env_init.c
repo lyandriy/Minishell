@@ -6,13 +6,12 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 10:19:52 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/16 18:32:13 by vicgarci         ###   ########.fr       */
+/*   Updated: 2023/09/23 16:29:25 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static char		**free_clone_env(char **env);
 static int		get_leght_of_env(char **env);
 static char		**selective_clone(char **env, char **local_env);
 
@@ -33,20 +32,6 @@ t_bool	clone_env_init(char **env, t_shell *shell)
 	if (!update_shell_lvl(shell))
 		return (false);
 	return (true);
-}
-
-static char	**free_clone_env(char **env)
-{
-	int		i;
-
-	i = 0;
-	while (env[i])
-	{
-		free(env[i]);
-		i++;
-	}
-	free(env);
-	return (NULL);
 }
 
 static int	get_leght_of_env(char **env)
@@ -80,7 +65,10 @@ static char	**selective_clone(char **env, char **local_env)
 			local_env[i] = NULL;
 			local_env[i] = ft_strdup(env[i + j]);
 			if (!local_env[i])
-				return (free_clone_env(local_env));
+			{
+				free_clone_env(local_env);
+				return (NULL);
+			}
 			i++;
 		}
 		else

@@ -35,9 +35,9 @@ static void	print_ptr(uintptr_t num)
 	else
 	{
 		if (num < 10)
-			ft_putchar_fd((num + '0'), 1);
+			ft_putchar_fd((num + '0'), 2);
 		else
-			ft_putchar_fd(((num - 10) + 'a'), 1);
+			ft_putchar_fd(((num - 10) + 'a'), 2);
 	}
 }
 
@@ -45,9 +45,9 @@ int	p_case(unsigned long long ptr)
 {
 	int		len;
 
-	len = write(1, "0x", 2);
+	len = write(2, "0x", 2);
 	if (ptr == 0)
-		len += write(1, "0", 1);
+		len += write(2, "0", 1);
 	else
 	{
 		len = calc_ptr_len(ptr);

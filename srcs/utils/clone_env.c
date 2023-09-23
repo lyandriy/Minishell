@@ -6,13 +6,11 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 16:03:55 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/08/14 16:06:05 by vicgarci         ###   ########.fr       */
+/*   Updated: 2023/09/23 16:27:49 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-
-static t_bool	free_clone_env(char **env);
 
 t_bool	clone_env(char **env, t_shell *shell)
 {
@@ -38,18 +36,4 @@ t_bool	clone_env(char **env, t_shell *shell)
 	local_env[i] = NULL;
 	shell->env = local_env;
 	return (true);
-}
-
-static t_bool	free_clone_env(char **env)
-{
-	int		i;
-
-	i = 0;
-	while (env[i])
-	{
-		free(env[i]);
-		i++;
-	}
-	free(env);
-	return (false);
 }

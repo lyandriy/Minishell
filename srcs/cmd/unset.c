@@ -6,25 +6,34 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 16:23:56 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/09/20 17:38:45 by vicgarci         ###   ########.fr       */
+/*   Updated: 2023/09/23 16:30:22 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static t_bool	free_clone_env(char **env)
+static	int	check_name(char *s)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	while (env[i])
+	while (s[i] != '\0' && s[i] != '=')
 	{
-		free(env[i]);
+		if (!ft_isalnum(s[i]) || ft_isdigit(s[i]))
+		{
+			ft_printf("%s: %s: '%s': %s\n",
+				"Minishell",
+				"unset",
+				s,
+				"not a valid identifier");
+			g_shell->child_status = 1;
+			return (false);
+		}
 		i++;
 	}
-	free(env);
-	return (false);
+	return (true);
 }
+
 
 static void	local_copy_env(t_shell *shell, int target, char **local_env)
 {
@@ -83,6 +92,8 @@ void	ft_unset(t_shell *shell, char *s)
 	int		size_env;
 	char	*target;
 
+	if (!check_name(s))
+		return ;
 	target = NULL;
 	size_env = 0;
 	target = load_target(s);

@@ -28,7 +28,7 @@ int	ft_printf(char const *s, ...)
 		}
 		else
 		{
-			write(1, s, 1);
+			write(2, s, 1);
 			printlen++;
 		}
 		s++;

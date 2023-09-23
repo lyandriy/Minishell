@@ -19,9 +19,9 @@ int	s_case(char	*s)
 	if (s)
 	{
 		len = ft_strlen(s);
-		write(1, s, len);
+		write(2, s, len);
 		return (len);
 	}
-	write(1, "(null)", 6);
+	write(2, "(null)", 6);
 	return (6);
 }

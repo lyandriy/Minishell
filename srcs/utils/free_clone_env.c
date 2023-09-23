@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   xmax_case.c                                        :+:      :+:    :+:   */
+/*   free_clone_env.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 14:06:26 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/09/23 16:22:24 by vicgarci         ###   ########.fr       */
+/*   Created: 2023/09/23 16:25:16 by vicgarci          #+#    #+#             */
+/*   Updated: 2023/09/23 16:25:34 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "../minishell.h"
 
-static int	calc_hexa_len(unsigned int num)
+t_bool	free_clone_env(char **env)
 {
-	int	len;
-
-	len = 0;
-	while (num != 0)
-	{
-		len++;
-		num = num / 16;
-	}
-	return (len);
-}
-
-int	xmax_case(unsigned int hexa)
-{
-	int					i;
+	int		i;
 
 	i = 0;
-	if (hexa == 0)
-		i += write(2, "0", 1);
-	else
+	while (env[i])
 	{
-		i = calc_hexa_len(hexa);
-		ft_putuhexa_fd(hexa, 2, 1);
+		free(env[i]);
+		i++;
 	}
-	return (i);
+	free(env);
+	return (false);
 }
