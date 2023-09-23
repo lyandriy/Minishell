@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 18:52:01 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/09/20 17:38:32 by vicgarci         ###   ########.fr       */
+/*   Updated: 2023/09/23 15:04:26 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static int		get_argv_size(char **argv);
 static t_bool	is_all_number(char *s);
+static void		is_first_parameter_a_char(int *exit_value, t_cmd *cmd);
 
 static void	with_exit_value(int *exit_value, t_cmd *cmd)
 {
@@ -28,24 +29,14 @@ void	ft_exit(t_shell *shell, t_cmd *cmd)
 	int		size;
 
 	exit_value = 0;
-	if (cmd->argv[1])
-	{
-		if (!is_all_number(cmd->argv[1]))
-		{
-			ft_printf("bash: %s: numeric argument required\n",
-				cmd->argv[1]);
-			exit_value = 255;
-			exit(exit_value);
-		}
-		else
-			with_exit_value(&exit_value, cmd);
-	}
 	size = get_argv_size(cmd->argv);
+	is_first_parameter_a_char(&exit_value, cmd);
 	if (size > 2)
 		ft_printf("Minishell: exit: too many arguments\n");
-	if (size == 1)
+	if (size <= 2)
 	{
 		ft_cleanshell(shell);
+		ft_printf("exit\n");
 		exit(exit_value);
 	}
 }
@@ -74,4 +65,21 @@ static t_bool	is_all_number(char *s)
 		i++;
 	}
 	return (true);
+}
+
+static void	is_first_parameter_a_char(int *exit_value, t_cmd *cmd)
+{
+	if (cmd->argv[1])
+	{
+		if (!is_all_number(cmd->argv[1]))
+		{
+			ft_printf("bash: %s: numeric argument required\n",
+				cmd->argv[1]);
+			*exit_value = 255;
+			ft_printf("exit\n");
+			exit(*exit_value);
+		}
+		else
+			with_exit_value(exit_value, cmd);
+	}
 }

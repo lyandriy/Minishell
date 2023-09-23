@@ -6,7 +6,7 @@
 /*   By: vicgarci <vicgarci@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 10:34:35 by vicgarci          #+#    #+#             */
-/*   Updated: 2023/09/20 15:48:03 by vicgarci         ###   ########.fr       */
+/*   Updated: 2023/09/23 14:54:18 by vicgarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ static int	check_built_in(t_shell *shell)
 			fd[STDIN_FILENO] = dup(STDIN_FILENO);
 			fd[STDOUT_FILENO] = dup(STDOUT_FILENO);
 			mng_redirections(child->cmd, shell);
-			if (ft_strcmp(child->cmd->argv[0], "exit"))
-				ft_printf("exit\n");
 			shell->child_status = do_build_in(child->cmd, shell);
 			if (dup2(fd[STDIN_FILENO], STDIN_FILENO) == -1)
 				exit(1);
